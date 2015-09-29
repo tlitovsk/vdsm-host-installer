@@ -70,7 +70,12 @@ repo --name=updates --mirrorlist=https://mirrors.fedoraproject.org/mirrorlist?re
 -libertas-usb8388-firmware
 -usb_modeswitch
 -zd1211-firmware
-vim
+
+#live media staff
+memtest86+
+anaconda
+
+#vdsm staff
 vdsm
 ovirt-host-deploy-offline
 vdsm-cli

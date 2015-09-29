@@ -3,7 +3,7 @@
 # and repos configured.
 #process
 install
-url --url=http://mirror.isoc.org.il/pub/fedora/releases/22/Everything/x86_64/os/
+url --mirrorlist=https://mirrors.fedoraproject.org/mirrorlist?repo=fedora-22&arch=x86_64
 
 # setting the instllation disk staff
 #autopart --type=lvm --fstype=ext4
@@ -14,18 +14,14 @@ part swap --size=512
 part /  --size=4096
 
 # Networking
-firewall --enabled
 network --bootproto=dhcp --device=link --activate --onboot=on
 
 # System authorization information
 auth  --useshadow  --passalgo=sha512
 rootpw ovirt
 
-# booting
-firstboot --disable
-
 #process
-reboot
+shutdown
 
 # System timezone
 timezone Africa/Abidjan
@@ -40,7 +36,7 @@ selinux --enforcing
 #repos
 repo --name=ovirt --baseurl=http://resources.ovirt.org/pub/ovirt-3.6-snapshot/rpm/fc22/
 repo --name=gluster --baseurl=http://download.gluster.org/pub/gluster/glusterfs/3.7/LATEST/Fedora/fedora-22/x86_64/
-repo --name=updates --baseurl=http://mirror.isoc.org.il/pub/fedora/updates/22/x86_64/
+repo --name=updates --mirrorlist=https://mirrors.fedoraproject.org/mirrorlist?repo=updates-released-f22&arch=x86_64
 
 %packages --excludedocs --instLangs=en
 @admin-tools
